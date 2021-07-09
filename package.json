@@ -1,0 +1,12 @@
+{
+  "name": "visresumemook-electron",
+  "version": "0.0.1",
+  "author": "HasebeAya",
+  "description": "a application to design yourself resume",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo test"
+  },
+  "keywords": [],
+  "license": "ISC"
+}
