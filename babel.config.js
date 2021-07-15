@@ -1,3 +1,9 @@
+const path = require('path')
+
+function resolve (args) {
+  return path.resolve(__dirname, args)
+}
+
 module.exports = {
   presets: [
     '@babel/preset-env', // 👉 根据配置的目标浏览器或者运行环境，选择对应的语法包，从而将代码进行转换
@@ -13,6 +19,20 @@ module.exports = {
         loose: true,
         lazy: true,
       },
+    ],
+    // css-modules
+    [
+      'babel-plugin-react-css-modules',
+      {
+        context: resolve('app'),
+        exclude: 'node_modules',
+        webpackHotModuleReloading: true,
+        generateScopedName: '[name]__[local]__[hash:base64:5]',
+        autoResolveMultipleImports: true,
+        filetypes: {
+          '.less': { syntax: 'postcss-less' },
+        }
+      }
     ]
   ]
 }

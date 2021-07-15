@@ -3,7 +3,7 @@
  * @Date: 2021-07-14 14:29:48
  * @Description: 基础公共配置
  * @LastEditors: HasebeAya
- * @LastEditTime: 2021-07-15 13:56:29
+ * @LastEditTime: 2021-07-15 17:35:51
  */
 
 const path = require('path')
