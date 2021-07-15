@@ -68,3 +68,7 @@ new BrowserWindow({
   }
 })
 ```
+
+## TS模块声明
+
+> https://my.oschina.net/fenying/blog/747184
