@@ -3,7 +3,7 @@
  * @Date: 2021-07-14 14:29:48
  * @Description: 基础公共配置
  * @LastEditors: HasebeAya
- * @LastEditTime: 2021-07-14 14:52:18
+ * @LastEditTime: 2021-07-15 13:56:29
  */
 
 const path = require('path')
@@ -11,8 +11,11 @@ const path = require('path')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 function resolve (args) {
-  return path.resolve(__dirname, ...args)
+  return path.resolve(__dirname, args)
 }
+
+// 基础路径
+const baseDirPath = resolve('../app')
 
 module.exports = {
   // 配置模块如何被解析。
@@ -22,9 +25,11 @@ module.exports = {
     extensions: ['.js', '.jsx', '.ts', '.tsx'],
     // 创建 import 或 require 的别名，来确保模块引入变得更简单
     alias: {
-      '@src': resolve(['../', 'app/renderer'])
+      '@src': resolve('../app/renderer')
     },
   },
+  // 基础目录，绝对路径，用于从配置中解析入口点(entry point)和 加载器(loader)。
+  context: baseDirPath,
   // 这些选项决定了如何处理项目中的不同类型的模块
   module: {
     // 创建模块时，匹配请求的规则数组。这些规则能够修改模块的创建方式

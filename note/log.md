@@ -1,6 +1,6 @@
 # 相关问题记录
 
-## 启动报错
+## 启动报错(1)
 
 **描述**
 
@@ -27,7 +27,7 @@ throw new Error('Electron failed to install correctly, please delete node_module
 
 **解决方式**
 
-1. 手动下载
+1. 手动下载(√)
 
 ```js
 // 前往淘宝镜像 https://npm.taobao.org/mirrors/electron/@versions
@@ -41,5 +41,30 @@ throw new Error('Electron failed to install correctly, please delete node_module
 // node_modules/@electron/get/dist/cjs/index.js => 具体的下载url路径
 // 再手动去对应目录(node_modules\electron) node install
 ```
+## 启动报错(2)
 
-3. 修改变量
+**描述**
+
+```js
+// devtool
+// require is not defined
+```
+
+**原因**
+
+```js
+// Electron 12版本之后默认启用配置项
+// BrowserWindow可选项webPreferences.contextIsolation默认为false
+```
+
+**解决方式**
+
+```js
+new BrowserWindow({
+  // ...增加配置项
+  webPreferences: {
+    nodeIntegration: true, // 注入node模块
+    contextIsolation: false // 上下文隔离
+  }
+})
+```

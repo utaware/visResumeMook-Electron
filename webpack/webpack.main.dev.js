@@ -3,7 +3,7 @@
  * @Date: 2021-07-14 14:29:54
  * @Description: 主进程的配置
  * @LastEditors: HasebeAya
- * @LastEditTime: 2021-07-14 15:57:23
+ * @LastEditTime: 2021-07-15 13:55:33
  */
 
 const path = require('path')
@@ -15,16 +15,12 @@ const baseConfig = require('./webpack.base.js')
 function resolve (args) {
   return path.resolve(__dirname, args)
 }
-// 基础路径
-const baseDirPath = resolve('../app')
 // 打包目录
 const distDirPath = resolve('../dist')
 // 主进程入口目录
-const entryDirPath = resolve('../app/main/electron.js')
+const entryDirPath = resolve('../app/main/electron.ts')
 
 const mainConfig = {
-  // 基础目录，绝对路径，用于从配置中解析入口点(entry point)和 加载器(loader)。
-  context: baseDirPath,
   entry: entryDirPath,
   // 构建目标
   target: 'electron-main',

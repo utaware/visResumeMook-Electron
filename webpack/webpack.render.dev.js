@@ -3,7 +3,7 @@
  * @Date: 2021-07-14 14:30:00
  * @Description: file description
  * @LastEditors: HasebeAya
- * @LastEditTime: 2021-07-14 16:04:08
+ * @LastEditTime: 2021-07-15 13:57:35
  */
 
 const path = require('path')
@@ -19,10 +19,9 @@ function resolve (args) {
 }
 
 const devConfig = {
-  context: resolve('../app'),
   mode: 'development',
   entry: {
-    index: resolve('../app/renderer/app.jsx')
+    index: resolve('../app/renderer/app.tsx')
   },
   output: {
     filename: '[name].[hash].js',

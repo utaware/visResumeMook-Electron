@@ -3,7 +3,7 @@
  * @Date: 2021-07-09 10:32:25
  * @Description: config for creat main window
  * @LastEditors: HasebeAya
- * @LastEditTime: 2021-07-14 16:14:48
+ * @LastEditTime: 2021-07-15 13:58:05
  */
 
 const WindowWidth = 1200

@@ -3,7 +3,7 @@
  * @Date: 2021-07-09 10:25:44
  * @Description: main process entry
  * @LastEditors: HasebeAya
- * @LastEditTime: 2021-07-14 15:18:17
+ * @LastEditTime: 2021-07-15 13:58:15
  */
 
 const path = require('path')
@@ -11,7 +11,7 @@ const path = require('path')
 // BrowserWindow 模块，它创建和管理应用程序 窗口。
 const { app, BrowserWindow } = require('electron')
 
-const config = require('./config.js')
+const config = require('./config.ts')
 
 function isDev () {
   return process.env.NODE_ENV === 'development'
