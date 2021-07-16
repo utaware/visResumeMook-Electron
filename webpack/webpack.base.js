@@ -3,7 +3,7 @@
  * @Date: 2021-07-14 14:29:48
  * @Description: 基础公共配置
  * @LastEditors: HasebeAya
- * @LastEditTime: 2021-07-15 17:55:40
+ * @LastEditTime: 2021-07-16 16:44:53
  */
 
 const path = require('path')
@@ -25,7 +25,7 @@ module.exports = {
     extensions: ['.js', '.jsx', '.ts', '.tsx'],
     // 创建 import 或 require 的别名，来确保模块引入变得更简单
     alias: {
-      '@src': resolve('../app/renderer')
+      '@app': resolve('../app'),
     },
   },
   // 基础目录，绝对路径，用于从配置中解析入口点(entry point)和 加载器(loader)。

@@ -3,7 +3,7 @@
  * @Date: 2021-07-14 14:29:54
  * @Description: 主进程的配置
  * @LastEditors: HasebeAya
- * @LastEditTime: 2021-07-15 13:55:33
+ * @LastEditTime: 2021-07-16 16:41:11
  */
 
 const path = require('path')
@@ -32,6 +32,7 @@ const mainConfig = {
   devtool: 'inline-source-map',
   // 提供 mode 配置选项，告知 webpack 使用相应模式的内置优化
   mode: 'development',
+  resolve: {}
 }
 
 module.exports = webpackMerge.merge(baseConfig, mainConfig)

@@ -3,7 +3,7 @@
  * @Date: 2021-07-14 14:30:00
  * @Description: file description
  * @LastEditors: HasebeAya
- * @LastEditTime: 2021-07-15 14:46:40
+ * @LastEditTime: 2021-07-16 16:44:26
  */
 
 const path = require('path')
@@ -35,6 +35,12 @@ const devConfig = {
     host: '127.0.0.1', // webpack-dev-server启动时要指定ip，不能直接通过localhost启动，不指定会报错
     port: 7001, // 启动端口为 7001 的服务
     hot: true,
+  },
+  resolve: {
+    alias: {
+      '@src': resolve('../app/renderer'),
+      '@common': resolve('../app/renderer/common')
+    }
   },
   module: {
     rules: [

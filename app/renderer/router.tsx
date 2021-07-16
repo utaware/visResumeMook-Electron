@@ -3,26 +3,33 @@
  * @Date: 2021-07-16 09:15:04
  * @Description: 路由文件
  * @LastEditors: HasebeAya
- * @LastEditTime: 2021-07-16 09:32:43
+ * @LastEditTime: 2021-07-16 16:49:40
  */
 
 import React from 'react'
 
 import { HashRouter, Route, Switch, Redirect } from 'react-router-dom'
 
-import Root from './container/root'
+import Root from '@src/container/root'
+import Resume from '@src/container/resume'
+
+import { ROUTER } from '@common/constants/router'
 
 function Router () {
   return (
     <HashRouter>
       <Switch>
         {/* 加上exact代表当前路由path的路径采用精确匹配 */}
-        <Route path="/" exact>
+        <Route path={ROUTER.root} exact>
           <Root></Root>
+        </Route>
+        {/* 简历 */}
+        <Route path={ROUTER.resume}>
+          <Resume></Resume>
         </Route>
       </Switch>
       {/* 重定向到首页 */}
-      <Redirect to="/"></Redirect>
+      <Redirect to={ROUTER.root}></Redirect>
     </HashRouter>
   )
 }
