@@ -3,29 +3,20 @@
  * @Date: 2021-07-14 15:30:27
  * @Description: 渲染进程主要的js
  * @LastEditors: HasebeAya
- * @LastEditTime: 2021-07-15 14:06:14
+ * @LastEditTime: 2021-07-16 09:33:57
  */
 
 import React from 'react'
 
 import ReactDOM from 'react-dom'
 
-import { HashRouter as Router, Route, Switch } from 'react-router-dom'
-
-import Title from './title'
+import Router from './router'
 
 const rootSelector = '#root'
 
 function App () {
   return (
-    <Router>
-      <Switch>
-        <Route path="/">
-          <Title text="简介开发平台"></Title>
-          <Title text="这是 Electron + React"></Title>
-        </Route>
-      </Switch>
-    </Router>
+    <Router></Router>
   )
 }
 
