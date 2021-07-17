@@ -3,16 +3,16 @@
  * @Date: 2021-07-16 09:15:04
  * @Description: 路由文件
  * @LastEditors: HasebeAya
- * @LastEditTime: 2021-07-16 16:49:40
+ * @LastEditTime: 2021-07-17 11:21:36
  */
 
 import React from 'react'
-
+// router
 import { HashRouter, Route, Switch, Redirect } from 'react-router-dom'
-
+// components
 import Root from '@src/container/root'
 import Resume from '@src/container/resume'
-
+// route
 import { ROUTER } from '@common/constants/router'
 
 function Router () {

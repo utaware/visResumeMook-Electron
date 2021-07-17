@@ -3,7 +3,7 @@
  * @Date: 2021-07-16 09:19:10
  * @Description: 首页
  * @LastEditors: HasebeAya
- * @LastEditTime: 2021-07-16 17:10:08
+ * @LastEditTime: 2021-07-17 15:47:43
  */
 
 import React from 'react'
@@ -11,6 +11,8 @@ import React from 'react'
 import { useHistory } from 'react-router'
 
 import { shell } from 'electron'
+
+import { useSelector } from 'react-redux'
 
 import Logo from './images/logo.png'
 
@@ -34,6 +36,10 @@ function Root () {
   const onOpenTargetUrl = (item: TSRouter.Item) => {
     isBrowserUrl(item.url) ? onOpenBrowserHref(item) : onRouterToLink(item)
   }
+
+  const { appName } = useSelector((state: IReduxState) => state.globalModel)
+
+  console.log('appName', appName)
 
   return (
     <div styleName="root">
