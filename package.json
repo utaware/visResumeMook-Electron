@@ -7,7 +7,7 @@
   "scripts": {
     "start:main": "webpack --config ./webpack/webpack.main.dev.js && electron ./dist/electron.js",
     "start:render": "webpack-dev-server --config ./webpack/webpack.render.dev.js",
-    "dev": "concurrently \"npm run start:render\"  \"npm run start:main\" "
+    "dev": "npm run start:render"
   },
   "keywords": [],
   "license": "ISC",

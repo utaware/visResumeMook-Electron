@@ -3,7 +3,7 @@
  * @Date: 2021-07-14 14:30:00
  * @Description: file description
  * @LastEditors: HasebeAya
- * @LastEditTime: 2021-07-16 16:44:26
+ * @LastEditTime: 2021-07-17 18:00:37
  */
 
 const path = require('path')
@@ -13,6 +13,8 @@ const webpackMerge = require('webpack-merge')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const baseConfig = require('./webpack.base.js')
+
+const ExecMainProcessPlugin = require('./plugin/exec')
 
 function resolve (args) {
   return path.resolve(__dirname, args)
@@ -34,7 +36,7 @@ const devConfig = {
     compress: true,
     host: '127.0.0.1', // webpack-dev-server启动时要指定ip，不能直接通过localhost启动，不指定会报错
     port: 7001, // 启动端口为 7001 的服务
-    hot: true,
+    hot: true
   },
   resolve: {
     alias: {
@@ -72,7 +74,8 @@ const devConfig = {
       template: resolve('../app/renderer/index.html'),
       filename: resolve('../dist/index.html'),
       chunks: ['index']
-    })
+    }),
+    new ExecMainProcessPlugin()
   ]
 }
 
