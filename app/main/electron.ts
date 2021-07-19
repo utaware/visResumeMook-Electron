@@ -3,17 +3,17 @@
  * @Date: 2021-07-09 10:25:44
  * @Description: main process entry
  * @LastEditors: HasebeAya
- * @LastEditTime: 2021-07-15 13:58:15
+ * @LastEditTime: 2021-07-19 10:41:38
  */
 
-const path = require('path')
+import path from 'path'
 // app 模块，它控制应用程序的事件生命周期。
 // BrowserWindow 模块，它创建和管理应用程序 窗口。
-const { app, BrowserWindow } = require('electron')
+import { app, BrowserWindow } from 'electron'
 
-const config = require('./config.ts')
+import config from './config'
 
-function isDev () {
+function isDev () : boolean {
   return process.env.NODE_ENV === 'development'
 }
 
