@@ -3,14 +3,16 @@
  * @Date: 2021-07-16 14:35:14
  * @Description: 简介页面
  * @LastEditors: HasebeAya
- * @LastEditTime: 2021-07-16 14:36:29
+ * @LastEditTime: 2021-07-19 17:01:37
  */
 
 import React from 'react'
 
+import ResumeBaseInfo from './BaseInfo'
+
 function Resume () {
   return (
-    <div>这里是简介页面</div>
+    <ResumeBaseInfo></ResumeBaseInfo>
   )
 }
 

@@ -5,8 +5,14 @@ import RcReduxModel from 'rc-redux-model'
 import { createStore, applyMiddleware, combineReducers } from 'redux'
 
 import globalModel from './globalModel'
+import resumeModel from './resumeModel'
 
-const reduxModel = new RcReduxModel([globalModel])
+const reduxModel = new RcReduxModel(
+  [
+    globalModel,
+    resumeModel
+  ]
+)
 
 const reducerList = combineReducers(reduxModel.reducers)
 

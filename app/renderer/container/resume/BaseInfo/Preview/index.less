@@ -1,0 +1,86 @@
+// 简历预览
+@font-deep-green: #02B28A;
+@font-deep-black: #040404;
+@font-deep-gray: #666;
+
+@icon-blue: rgb(119,182,229);
+@icon-pink: rgb(246,136,134);
+
+.gray {
+  color: @font-deep-gray;
+}
+
+.wrapper {
+  height: 260px;
+  padding: 50px;
+  background: #F8F9FB;
+  font-size: PingFangSC-Semibold, PingFang SC;
+  .container {
+    position: relative;
+    display: flex;
+    .avatar {
+      width: 100px;
+      height: 100px;
+      .img {
+        width: 100%;
+        border-radius: 50%;
+      }
+    }
+    .content {
+      margin-left: 20px;
+      flex: 1;
+      .username {
+        margin: 0;
+        font-size: 24px;
+        font-weight: 600;
+        color: @font-deep-black;
+        line-height: 33px;
+        letter-spacing: 1px;
+        padding-right: 11px;
+        .icon {
+          margin-left: 10px;
+          margin-top: 10px;
+          font-size: 14px;
+          width: 12px;
+          height: 12px;
+          vertical-align: top;
+          &.male {
+            color: @icon-blue;
+          }
+          &.female {
+            color: @icon-pink;
+          }
+        }
+      }
+      .list {
+        display: flex;
+        margin-bottom: 0;
+        padding-top: 20px;
+        font-size: 16px;
+        font-weight: 400;
+        color: @font-deep-gray;
+        .item {
+          padding-right: 20px;
+          text-align: center;
+        }
+        .item + .item {
+          position: relative;
+          &::after {
+            position: absolute;
+            content: '|';
+            left: -12px;
+            bottom: 2px;
+            color: @font-deep-gray;
+          }
+        }
+      }
+    }
+    .handle {
+      position: absolute;
+      right: 0;
+      top: 0;
+      cursor: pointer;
+      color: @font-deep-green;
+    }
+  }
+}

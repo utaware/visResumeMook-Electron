@@ -3,7 +3,7 @@
  * @Date: 2021-07-14 14:29:48
  * @Description: 基础公共配置
  * @LastEditors: HasebeAya
- * @LastEditTime: 2021-07-16 16:44:53
+ * @LastEditTime: 2021-07-19 17:25:46
  */
 
 const path = require('path')
@@ -26,6 +26,7 @@ module.exports = {
     // 创建 import 或 require 的别名，来确保模块引入变得更简单
     alias: {
       '@app': resolve('../app'),
+      '@assets': resolve('../assets')
     },
   },
   // 基础目录，绝对路径，用于从配置中解析入口点(entry point)和 加载器(loader)。
@@ -40,16 +41,15 @@ module.exports = {
         use: { loader: 'babel-loader' }
       },
       {
-        test: /\.(jpg|png|jpeg|gif)$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: '[name]_[hash].[ext]',
-              outputPath: 'images/',
-            }
+        test: /\.(png|jpe?g|gif|svg)$/,
+        use: {
+          loader: 'url-loader',
+          options: {
+            limit: 10000,
+            name: '[name]_[hash].[ext]',
+            esModule: false
           }
-        ]
+        }
       }
     ]
   },
