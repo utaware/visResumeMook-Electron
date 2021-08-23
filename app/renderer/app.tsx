@@ -3,7 +3,7 @@
  * @Date: 2021-07-14 15:30:27
  * @Description: 渲染进程主要的js
  * @LastEditors: HasebeAya
- * @LastEditTime: 2021-07-19 15:05:03
+ * @LastEditTime: 2021-08-09 09:13:58
  */
 
 import React from 'react'
@@ -20,6 +20,8 @@ import 'reset-css'
 import 'normalize.css'
 // antd
 import 'antd/dist/antd.css'
+
+// import '@assets/less/index.less'
 
 const rootSelector = '#root'
 

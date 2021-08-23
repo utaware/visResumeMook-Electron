@@ -1,19 +1,14 @@
 // 简历预览
-@font-deep-green: #02B28A;
-@font-deep-black: #040404;
-@font-deep-gray: #666;
-
-@icon-blue: rgb(119,182,229);
-@icon-pink: rgb(246,136,134);
+@import '~@assets/less/variable.less';
 
 .gray {
-  color: @font-deep-gray;
+  color: @font-text-gray;
 }
 
 .wrapper {
   height: 260px;
   padding: 50px;
-  background: #F8F9FB;
+  background: @resume-base-bg;
   font-size: PingFangSC-Semibold, PingFang SC;
   .container {
     position: relative;
@@ -33,7 +28,7 @@
         margin: 0;
         font-size: 24px;
         font-weight: 600;
-        color: @font-deep-black;
+        color: @font-title-black;
         line-height: 33px;
         letter-spacing: 1px;
         padding-right: 11px;
@@ -45,10 +40,10 @@
           height: 12px;
           vertical-align: top;
           &.male {
-            color: @icon-blue;
+            color: @icon-gender-blue;
           }
           &.female {
-            color: @icon-pink;
+            color: @icon-gender-pink;
           }
         }
       }
@@ -58,7 +53,6 @@
         padding-top: 20px;
         font-size: 16px;
         font-weight: 400;
-        color: @font-deep-gray;
         .item {
           padding-right: 20px;
           text-align: center;
@@ -70,7 +64,6 @@
             content: '|';
             left: -12px;
             bottom: 2px;
-            color: @font-deep-gray;
           }
         }
       }
@@ -80,7 +73,7 @@
       right: 0;
       top: 0;
       cursor: pointer;
-      color: @font-deep-green;
+      color: @font-handle-green;
     }
   }
 }
