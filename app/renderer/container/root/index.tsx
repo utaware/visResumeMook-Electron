@@ -3,14 +3,12 @@
  * @Date: 2021-07-16 09:19:10
  * @Description: 首页
  * @LastEditors: HasebeAya
- * @LastEditTime: 2021-07-19 11:05:24
+ * @LastEditTime: 2021-09-24 11:28:30
  */
 
 import React from 'react'
 
 import { useHistory } from 'react-router'
-
-import { shell } from 'electron'
 
 import { useSelector } from 'react-redux'
 
@@ -26,7 +24,7 @@ function Root () {
   const history = useHistory()
 
   const onOpenBrowserHref = ({ url }: TSRouter.Item) => {
-    shell.openExternal(url)
+    window.api.send('openExternal', url)
   }
 
   const onRouterToLink = ({ url }: TSRouter.Item) => {

@@ -3,7 +3,7 @@
  * @Date: 2021-07-16 09:15:04
  * @Description: 路由文件
  * @LastEditors: HasebeAya
- * @LastEditTime: 2021-07-17 11:21:36
+ * @LastEditTime: 2021-09-24 14:18:40
  */
 
 import React from 'react'
@@ -29,7 +29,7 @@ function Router () {
         </Route>
       </Switch>
       {/* 重定向到首页 */}
-      <Redirect to={ROUTER.root}></Redirect>
+      {/* <Redirect to={ROUTER.root}></Redirect> */}
     </HashRouter>
   )
 }

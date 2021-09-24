@@ -55,6 +55,12 @@ throw new Error('Electron failed to install correctly, please delete node_module
 ```js
 // Electron 12版本之后默认启用配置项
 // BrowserWindow可选项webPreferences.contextIsolation默认为false
+
+// 而如果不注入node模块，实际上通过source-map发现这部分报错在于
+// webpack-dev-server打包进了一行代码
+// var url = require('url')
+// 因为这部分原因导致的
+// 修改webpack render.dev.js中target为web，正常使用。
 ```
 
 **解决方式**
@@ -72,3 +78,7 @@ new BrowserWindow({
 ## TS模块声明
 
 > https://my.oschina.net/fenying/blog/747184
+
+## puppeteer打印问题
+
+> https://blog.csdn.net/zhai_865327/article/details/104792646

@@ -3,25 +3,42 @@
  * @Date: 2021-07-09 10:25:44
  * @Description: main process entry
  * @LastEditors: HasebeAya
- * @LastEditTime: 2021-07-19 10:41:38
+ * @LastEditTime: 2021-09-24 14:26:08
  */
 
-import path from 'path'
+const path = require('path')
+
 // app 模块，它控制应用程序的事件生命周期。
 // BrowserWindow 模块，它创建和管理应用程序 窗口。
-import { app, BrowserWindow } from 'electron'
+const { app, BrowserWindow } = require('electron')
 
-import config from './config'
+const isDev = process.env.NODE_ENV === 'development'
 
-function isDev () : boolean {
-  return process.env.NODE_ENV === 'development'
+const config = {
+  width: 1200,
+  height: 800,
+  webPreferences: {
+    // 是否开启 DevTools
+    devTools: isDev,
+    // 注入node模块
+    nodeIntegration: false, // default-false
+    // 是否在独立 JavaScript 环境中运行 Electron API和指定的preload脚本
+    contextIsolation: true, // default-true
+    // 是否启用 remote 模块
+    enableRemoteModule: false, // default-false
+    // 一个将被附加到当前应用程序的渲染器进程中process.argv的字符串列表 。
+    // 可用于将少量的数据传递到渲染器进程预加载脚本中
+    additionalArguments: [app.getPath('userData')], // String
+    // 在页面运行其他脚本之前预先加载指定的脚本
+    preload: './preload.ts'
+  }
 }
 
 function createWindow () {
-
+  // https://www.electronjs.org/docs/api/browser-window
   const mainWindow = new BrowserWindow(config)
 
-  if (isDev()) {
+  if (isDev) {
     // 👇 看到了吗，在开发环境下，我们加载的是运行在 7001 端口的 React
     mainWindow.loadURL(`http://127.0.0.1:7001`);
   } else {

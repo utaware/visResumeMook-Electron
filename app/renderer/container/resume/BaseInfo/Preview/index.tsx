@@ -3,7 +3,7 @@
  * @Date: 2021-07-19 16:09:40
  * @Description: 编辑信息预览
  * @LastEditors: HasebeAya
- * @LastEditTime: 2021-07-20 14:59:13
+ * @LastEditTime: 2021-09-24 11:32:57
  */
 
 import React from 'react'
@@ -49,6 +49,7 @@ function ResumeBaseInfoPreview () {
   const age = computedAgeWithBirthday(birthday)
 
   const avatarUrl = require('@assets/images/avatar.jpg')
+  // const avatarUrl = ''
 
   return (
     // 包裹

@@ -3,7 +3,7 @@
  * @Date: 2021-07-14 14:29:48
  * @Description: 基础公共配置
  * @LastEditors: HasebeAya
- * @LastEditTime: 2021-07-19 17:25:46
+ * @LastEditTime: 2021-09-24 10:08:28
  */
 
 const path = require('path')
@@ -31,6 +31,7 @@ module.exports = {
   },
   // 基础目录，绝对路径，用于从配置中解析入口点(entry point)和 加载器(loader)。
   context: baseDirPath,
+  devtool: 'source-map',
   // 这些选项决定了如何处理项目中的不同类型的模块
   module: {
     // 创建模块时，匹配请求的规则数组。这些规则能够修改模块的创建方式

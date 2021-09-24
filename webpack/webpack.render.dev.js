@@ -3,7 +3,7 @@
  * @Date: 2021-07-14 14:30:00
  * @Description: file description
  * @LastEditors: HasebeAya
- * @LastEditTime: 2021-08-09 09:10:20
+ * @LastEditTime: 2021-09-24 11:21:43
  */
 
 const path = require('path')
@@ -29,11 +29,12 @@ const devConfig = {
     filename: '[name].[hash].js',
     path: resolve('../dist'),
   },
-  target: 'electron-renderer',
-  devtool: 'inline-source-map',
+  // target: 'electron-renderer',
+  target: 'web',
+  devtool: 'source-map',
   devServer: {
     contentBase: path.join(__dirname, '../dist'),
-    compress: true,
+    compress: true, // 启用 gzip compression
     host: '127.0.0.1', // webpack-dev-server启动时要指定ip，不能直接通过localhost启动，不指定会报错
     port: 7001, // 启动端口为 7001 的服务
     hot: true
