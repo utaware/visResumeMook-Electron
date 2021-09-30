@@ -3,25 +3,26 @@
  * @Date: 2021-08-23 14:50:50
  * @Description: 使用puppeteer打印出pdf文件
  * @LastEditors: HasebeAya
- * @LastEditTime: 2021-09-24 14:21:35
+ * @LastEditTime: 2021-09-30 15:36:22
  */
+
+const path = require('path')
+
 const puppeteer = require('puppeteer')
 
 const localPageUrl = 'http://127.0.0.1:7001/#/'
-// const localPageUrl = 'https://juejin.cn/user/1327865775784216/books?type=bought'
-
-const downloadPath = './download'
 
 const downFileName = 'test.pdf'
 
-console.log('localPageUrl', localPageUrl)
+// process.env.PUPPETEER_EXECUTABLE_PATH
+const executablePath = puppeteer.executablePath().replace(/(.local-chromium)/, 'script\\$&')
 
-const printPdf = async () => {
-  const browser = await puppeteer.launch()
+module.exports = async function () {
+  const browser = await puppeteer.launch({ executablePath })
   const page = await browser.newPage()
   await page.goto(localPageUrl, { timeout: 2000, waitUntil: 'domcontentloaded' })
   await page.pdf({
-    path: `${downloadPath}/${downFileName}`,
+    path: path.resolve(__dirname, downFileName),
     format: 'A4',
     // 导出的 pdf 没有背景色和背景图
     printBackground: true
@@ -29,5 +30,3 @@ const printPdf = async () => {
   await browser.close()
   console.log('printPdf compelete')
 }
-
-printPdf()

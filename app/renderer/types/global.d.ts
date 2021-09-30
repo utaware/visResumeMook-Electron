@@ -13,10 +13,3 @@ declare module '*.png' {
   const png: string;
   export default png;
 }
-
-interface Window {
-  api: {
-    send: (chanel: string, data: any) => void,
-    receive: (chanel: string, func: (...args: Array<any>) => void) => void
-  }
-}

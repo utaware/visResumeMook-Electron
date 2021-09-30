@@ -3,7 +3,7 @@
  * @Date: 2021-07-09 10:25:44
  * @Description: main process entry
  * @LastEditors: HasebeAya
- * @LastEditTime: 2021-09-24 14:26:08
+ * @LastEditTime: 2021-09-30 11:10:59
  */
 
 const path = require('path')
@@ -13,6 +13,8 @@ const path = require('path')
 const { app, BrowserWindow } = require('electron')
 
 const isDev = process.env.NODE_ENV === 'development'
+
+const preloadPath = path.resolve(__dirname, 'preload.js')
 
 const config = {
   width: 1200,
@@ -30,20 +32,19 @@ const config = {
     // 可用于将少量的数据传递到渲染器进程预加载脚本中
     additionalArguments: [app.getPath('userData')], // String
     // 在页面运行其他脚本之前预先加载指定的脚本
-    preload: './preload.ts'
+    preload: preloadPath
   }
 }
+
+const loadURL = isDev ?
+  'http://127.0.0.1:7001' :
+  `file://${path.join(__dirname, '../dist/renderer/index.html')}`
 
 function createWindow () {
   // https://www.electronjs.org/docs/api/browser-window
   const mainWindow = new BrowserWindow(config)
 
-  if (isDev) {
-    // 👇 看到了吗，在开发环境下，我们加载的是运行在 7001 端口的 React
-    mainWindow.loadURL(`http://127.0.0.1:7001`);
-  } else {
-    mainWindow.loadURL(`file://${path.join(__dirname, '../dist/index.html')}`);
-  }
+  mainWindow.loadURL(loadURL);
 
 }
 

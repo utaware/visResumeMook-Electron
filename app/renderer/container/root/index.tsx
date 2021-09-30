@@ -3,7 +3,7 @@
  * @Date: 2021-07-16 09:19:10
  * @Description: 首页
  * @LastEditors: HasebeAya
- * @LastEditTime: 2021-09-24 11:28:30
+ * @LastEditTime: 2021-09-30 11:10:14
  */
 
 import React from 'react'
@@ -24,7 +24,7 @@ function Root () {
   const history = useHistory()
 
   const onOpenBrowserHref = ({ url }: TSRouter.Item) => {
-    window.api.send('openExternal', url)
+    window.electronAPI.openExternal(url)
   }
 
   const onRouterToLink = ({ url }: TSRouter.Item) => {
@@ -33,6 +33,10 @@ function Root () {
 
   const onOpenTargetUrl = (item: TSRouter.Item) => {
     isBrowserUrl(item.url) ? onOpenBrowserHref(item) : onRouterToLink(item)
+  }
+
+  const downloadPdf = () => {
+    window.electronAPI.printPdfWithPageUrl()
   }
 
   const { appName } = useSelector((state: IReduxState) => state.globalModel)
@@ -51,11 +55,13 @@ function Root () {
             return (
               <div styleName="item"
                 key={item.key}
+                title={item.url}
                 onClick={ () => onOpenTargetUrl(item) }>
                   {item.text}
               </div>
             )
           })}
+          <button onClick={ () => downloadPdf() }>下载pdf</button>
         </div>
         <div styleName="copyright">
           <div styleName="footer">

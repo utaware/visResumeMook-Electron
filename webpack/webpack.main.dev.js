@@ -3,7 +3,7 @@
  * @Date: 2021-07-14 14:29:54
  * @Description: 主进程的配置
  * @LastEditors: HasebeAya
- * @LastEditTime: 2021-09-24 10:10:57
+ * @LastEditTime: 2021-09-30 11:46:06
  */
 
 const path = require('path')
@@ -16,22 +16,24 @@ function resolve (args) {
   return path.resolve(__dirname, args)
 }
 // 打包目录
-const distDirPath = resolve('../dist')
-// 主进程入口目录
-const entryDirPath = resolve('../app/main/electron.ts')
+const distDirPath = resolve('../dist/main')
 
 const mainConfig = {
-  entry: entryDirPath,
+  entry: {
+    electron: resolve('../app/main/electron.js'),
+    preload: resolve('../app/main/preload.js')
+  },
   // 构建目标
   target: 'electron-main',
   output: {
-    filename: 'electron.js',
-    path: distDirPath,
+    path: distDirPath
   },
-  // 此选项控制是否生成，以及如何生成 source map。
-  devtool: 'source-map',
-  // 提供 mode 配置选项，告知 webpack 使用相应模式的内置优化
-  mode: 'development',
+  // 配置是否 polyfill 或 mock 某些 Node.js 全局变量。
+  node: {
+    global: false,
+    __filename: false,
+    __dirname: false
+  },
   resolve: {}
 }
 

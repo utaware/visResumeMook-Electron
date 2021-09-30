@@ -3,7 +3,7 @@
  * @Date: 2021-07-14 14:29:48
  * @Description: 基础公共配置
  * @LastEditors: HasebeAya
- * @LastEditTime: 2021-09-24 10:08:28
+ * @LastEditTime: 2021-09-30 09:39:28
  */
 
 const path = require('path')
@@ -29,6 +29,8 @@ module.exports = {
       '@assets': resolve('../assets')
     },
   },
+  // 提供 mode 配置选项，告知 webpack 使用相应模式的内置优化
+  mode: 'development',
   // 基础目录，绝对路径，用于从配置中解析入口点(entry point)和 加载器(loader)。
   context: baseDirPath,
   devtool: 'source-map',
@@ -40,17 +42,6 @@ module.exports = {
         test: /\.(js|jsx|ts|tsx)$/,
         exclude: /node_modules/,
         use: { loader: 'babel-loader' }
-      },
-      {
-        test: /\.(png|jpe?g|gif|svg)$/,
-        use: {
-          loader: 'url-loader',
-          options: {
-            limit: 10000,
-            name: '[name]_[hash].[ext]',
-            esModule: false
-          }
-        }
       }
     ]
   },

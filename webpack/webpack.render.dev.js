@@ -3,7 +3,7 @@
  * @Date: 2021-07-14 14:30:00
  * @Description: file description
  * @LastEditors: HasebeAya
- * @LastEditTime: 2021-09-24 11:21:43
+ * @LastEditTime: 2021-09-30 11:13:13
  */
 
 const path = require('path')
@@ -21,19 +21,17 @@ function resolve (args) {
 }
 
 const devConfig = {
-  mode: 'development',
   entry: {
     index: resolve('../app/renderer/app.tsx')
   },
   output: {
     filename: '[name].[hash].js',
-    path: resolve('../dist'),
+    path: resolve('../dist/renderer'),
   },
   // target: 'electron-renderer',
   target: 'web',
-  devtool: 'source-map',
   devServer: {
-    contentBase: path.join(__dirname, '../dist'),
+    contentBase: path.join(__dirname, '../renderer/dist'),
     compress: true, // 启用 gzip compression
     host: '127.0.0.1', // webpack-dev-server启动时要指定ip，不能直接通过localhost启动，不指定会报错
     port: 7001, // 启动端口为 7001 的服务
@@ -67,13 +65,24 @@ const devConfig = {
           'postcss-loader',
           'less-loader'
         ]
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg)$/,
+        use: {
+          loader: 'url-loader',
+          options: {
+            limit: 10000,
+            name: '[name]_[hash].[ext]',
+            esModule: false
+          }
+        }
       }
     ]
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: resolve('../app/renderer/index.html'),
-      filename: resolve('../dist/index.html'),
+      filename: resolve('../dist/renderer/index.html'),
       chunks: ['index']
     }),
     new ExecMainProcessPlugin()
