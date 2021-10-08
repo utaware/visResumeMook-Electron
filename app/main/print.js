@@ -3,7 +3,7 @@
  * @Date: 2021-08-23 14:50:50
  * @Description: 使用puppeteer打印出pdf文件
  * @LastEditors: HasebeAya
- * @LastEditTime: 2021-09-30 15:36:22
+ * @LastEditTime: 2021-10-08 09:21:50
  */
 
 const path = require('path')
@@ -14,8 +14,10 @@ const localPageUrl = 'http://127.0.0.1:7001/#/'
 
 const downFileName = 'test.pdf'
 
+const replacePath = 'node_modules\\puppeteer\\$&'
+
 // process.env.PUPPETEER_EXECUTABLE_PATH
-const executablePath = puppeteer.executablePath().replace(/(.local-chromium)/, 'script\\$&')
+const executablePath = puppeteer.executablePath().replace(/(.local-chromium)/, replacePath)
 
 module.exports = async function () {
   const browser = await puppeteer.launch({ executablePath })

@@ -5,11 +5,10 @@
   "description": "a application to design yourself resume",
   "main": "app/main/electron.js",
   "scripts": {
-    "start:main": "webpack --config ./webpack/webpack.preload.dev.js cross-env NODE_ENV=development electron .",
+    "start:main": "webpack --config ./webpack/webpack.main.dev.js && electron ./dist/main/electron.js",
     "start:render": "webpack-dev-server --config ./webpack/webpack.render.dev.js",
-    "main": "webpack --config ./webpack/webpack.main.dev.js && electron ./dist/main/electron.js",
     "dev": "npm run start:render",
-    "test": "webpack --config ./webpack/webpack.render.dev.js && webpack --config ./webpack/webpack.main.dev.js && electron ./dist/electron.js"
+    "test": "echo test"
   },
   "keywords": [],
   "license": "ISC",
